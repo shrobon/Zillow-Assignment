@@ -1,4 +1,6 @@
-## Coding test
+## Zillow Coding Assignment
+
+### Question 
 - Try to avoid using third party modules
 - Stick to node.js core APIs
 - Write a test to confirm your module works correctly
@@ -16,3 +18,5 @@ Imagine a usage like this:
 ```
 $ tail -f mylogfile | myscript verbose
 ```
+
+### Solution
