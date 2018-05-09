@@ -1,8 +1,6 @@
 const fs = require('fs');
 const {Transform} = require('stream');
 
-const filePath = process.argv[2];
-
 class SummaryObject extends Transform {
   constructor(options) {
     super(options);
@@ -35,8 +33,11 @@ class Summary extends Transform {
 let tx0 = new SummaryObject({readableObjectMode: true});
 let tx1 = new Summary({writableObjectMode: true});
 
-let fileName = process.argv[2]
-console.log(`Entered filepath is : ${fileName}`);
-
-var fileReader = fs.createReadStream('test.txt');
-fileReader.pipe(tx0).pipe(tx1).pipe(process.stdout);
+let fileName = process.argv[2];
+fs.access(fileName,fs.constants.R_OK, (err) => {
+  if(err) {
+    console.log("[ERROR] FilePath entered does not exist Or the file cannot be read");
+  } else {
+    fs.createReadStream(fileName).pipe(tx0).pipe(tx1).pipe(process.stdout);
+  }
+});
