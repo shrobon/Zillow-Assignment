@@ -1,6 +1,10 @@
 const fs = require('fs');
 const {Transform} = require('stream');
 
+/*
+A duplex stream that outputs summary objects with keys for the
+elapsed time, total length in bytes, and total lines.
+*/
 class SummaryObject extends Transform {
   constructor(options) {
     super(options);
@@ -18,6 +22,10 @@ class SummaryObject extends Transform {
   }
 };
 
+/*
+A stream that takes the summary objects and outputs
+a oneline summary report suitable for logging
+*/
 class Summary extends Transform {
   constructor(options) {
     super(options);

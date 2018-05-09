@@ -20,3 +20,19 @@ $ tail -f mylogfile | myscript verbose
 ```
 
 ### Solution
+![alt text](Output.png)
+
+### Command to start the program
+
+```
+$ node index.js <FileName>
+```
+Please try the following examples.
+
+```
+$ node index.js test.txt
+```
+
+```
+$ node index.js testImage.jpg
+```
